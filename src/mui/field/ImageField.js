@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash.get';
+import pure from 'recompose/pure';
 
 const styles = {
     list: {
@@ -66,4 +67,10 @@ ImageField.propTypes = {
     title: PropTypes.string,
 };
 
-export default ImageField;
+const PureImageField = pure(ImageField);
+
+PureImageField.defaultProps = {
+    addLabel: true,
+};
+
+export default PureImageField;
