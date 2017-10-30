@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash.get';
+import pure from 'recompose/pure';
 
 export const FileField = ({ elStyle, record, source, title, src }) => {
     const sourceValue = get(record, source);
@@ -51,4 +52,10 @@ FileField.defaultProps = {
     elStyle: { display: 'inline-block' },
 };
 
-export default FileField;
+const PureFileField = pure(FileField);
+
+PureFileField.defaultProps = {
+    addLabel: true,
+};
+
+export default PureFileField;
